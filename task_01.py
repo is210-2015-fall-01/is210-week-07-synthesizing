@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """w7 synthesizing task 01."""
 
+
 def get_matches(players):
     """Function that takes one argument that
        list player names.
@@ -18,12 +19,11 @@ def get_matches(players):
         [('Harry', 'Howard'), ('Harry', 'Hugh'), ('Howard', 'Hugh')]
 
     """
-        
+
     matchups = []
-    playlist =  list(enumerate(players))
+    playlist = list(enumerate(players))
     for first in playlist:
         for second in playlist:
             if first[0] < second[0]:
                 matchups.append((first[1], second[1]))
     return sorted(matchups)
-                
