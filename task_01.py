@@ -19,7 +19,7 @@ def get_matches(players):
     for index, player in enumerate(players):
 
         for index2, player2 in enumerate(players):
-            if index < index2:
+            if index < index2:  # To make index compare only to indexes > it
                 results.append((player, player2))
 
     return results
