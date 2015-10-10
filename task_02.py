@@ -13,7 +13,7 @@ def login(username, maxattempts=3):
         Username(str): A string that represents the username
         of the username of the user attempting to log in.
 
-        maxattempts(int, optional): An integer represent the maximum
+gi        maxattempts(int, optional): An integer represent the maximum
         number of prompted attempts before the function returns false.
 
     Returns:
@@ -29,10 +29,10 @@ def login(username, maxattempts=3):
 
     userpw = False
     numattempts = 0
-    incorrect = 'Wrong password you have {} attempts left'
+    incorrect = 'Incorrect username or password. You have {} attempts left.'
 
     while not userpw and numattempts < maxattempts:
-        password = getpass.getpass('Enter User Password:')
+        password = getpass.getpass('Please enter your password:')
         usrauth = authentication.authenticate(username, password)
 
         if usrauth is not False:
