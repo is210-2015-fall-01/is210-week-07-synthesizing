@@ -5,7 +5,6 @@
 
 import authentication
 import getpass
-USER = 'mike'
 
 
 def login(username, max_attempts=3):
@@ -26,5 +25,3 @@ def login(username, max_attempts=3):
         authenticated = authentication.authenticate(username, myval)
 
     return authenticated
-
-login(USER)
