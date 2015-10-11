@@ -19,7 +19,7 @@ def login(username, max_attempts=3):
 
     authenticated = False
     attempt = 0
-    while (attempt < max_attempts) or (authenticated == False):
+    while (attempt < max_attempts) or (not authenticated):
         myval = getpass.getpass(prompt='Enter password:  ')
         attempt += 1
         authenticated = authentication.authenticate(username, myval)
