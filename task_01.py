@@ -20,18 +20,16 @@ def get_matches(players):
     Returns:
         A tuple containing a list of unique matchups between players
 
-    Raises:
-
     Examples:
-
+        >>> get_matches(['Harry', 'Howard', 'Hugh'])
+        [('Harry', 'Howard'), ('Harry', 'Hugh'), ('Howard', 'Hugh')]
+        [('Harry', 'Hugh'), ('Howard', 'Hugh'), ('Harry', 'Howard')]
     """
     matches = []
-    # l o o p  s t a r t
     for i, plyr1 in enumerate(players):
         if i < (len(players)-1):
             for j, plyr2 in enumerate(players):
                 if i < j:
                     matches.append((plyr1, plyr2))
     matches = list(set(matches))
-    print matches
     return matches
