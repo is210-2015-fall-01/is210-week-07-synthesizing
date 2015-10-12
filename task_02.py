@@ -37,15 +37,15 @@ def login(username, maxattempts=3):
         Please enter your password:greed
         True
     """
-    Incorrect = 'Incorrect username or password. You have {} attempts left.'
-    AUTHEN = False
-    NUMA = 0
-    while not AUTHEN and NUMA < maxattempts:
+    incorrect = 'Incorrect username or password. You have {} attempts left.'
+    authen = False
+    numa = 0
+    while not authen and numa < maxattempts:
         askpass = getpass.getpass('Please enter your password:')
         user = authentication.authenticate(username, askpass)
         if user is not False:
-            AUTHEN = True
+            authen = True
         else:
-            NUMA += 1
-            print Incorrect.format(maxattempts - NUMA)
-    return AUTHEN
+            numa += 1
+            print incorrect.format(maxattempts - numa)
+    return authen

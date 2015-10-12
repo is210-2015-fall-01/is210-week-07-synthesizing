@@ -13,16 +13,16 @@ def get_matches(players):
     list of unique matchups between players (stored as list of tuples)
 
     Examples:
-    >>> get_matches(['James', 'Jesse', 'Jennifer'])
-    [('James', 'Jennifer'), ('James', 'Jesse')]
+        >>> get_matches(['Harry', 'Howard', 'Hugh'])
+        [('Harry', 'Howard'), ('Harry', 'Hugh'), ('Howard', 'Hugh')]
+        >>> get_matches(['James', 'Jesse', 'Jennifer'])
+        [('James', 'Jesse'), ('James', 'Jennifer'), ('Jesse', 'Jennifer')]
 
     """
     matches = []
-    ENUM = enumerate(players)
-    for a, PLAY1 in ENUM:
-        if a < (len(players)-1):
-            for b, PLAY2 in ENUM:
-                if a < b:
-                    matches.append((PLAY1, PLAY2))
-                    matches = list(sorted(set(matches)))
+    enum = list(enumerate(players))
+    for play1 in enum:
+        for play2 in enum:
+            if play1[0] < play2[0]:
+                matches.append((play1[1], play2[1]))
     return matches
