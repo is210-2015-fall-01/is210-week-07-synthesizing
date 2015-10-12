@@ -21,12 +21,9 @@ def login(username, maxattempts=3):
     authenticated = False
     numattempts = 0
     incorrect = 'Incorrect username or password. You have {} attempts left.'
-
     while not authenticated and numattempts < maxattempts:
         password = getpass.getpass('Please enter your password:')
-        user = authentication.authenticate(username, password)
-
-        if user is not False:
+        if authentication.authenticate(username, password) is True:
             authenticated = True
 
         else:
