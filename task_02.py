@@ -21,13 +21,14 @@ def login(username, maxattempts=3):
 
     """
     authenticated = False
-    prompt = 'Please enter your password'
-    response = 'Incorrect username or password. You have {} attempts left.'
     counter = 0
-    while not authenticated and counter < maxattempts:
-        password = getpass.getpass(prompt)
-        authenticated = authentication.authenticate(username, password)
-        counter += 1
-        if not authenticated:
-            print response.format(maxattempts - counter, maxattempts)
-        return authenticated
+    message = 'Incorrect username or password. You have {} attempts left'
+    while counter < maxattempts and not authenticated:
+        password = getpass.getpass('Please enter your password?')
+        usrauth = authentication.authenticate(username, password)
+        if usrauth is not False:
+            authenticated = True
+        else:
+            counter += 1
+            print message.format(maxattempts - counter)
+    return authenticated
